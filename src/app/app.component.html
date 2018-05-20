@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="data">
+
+    <ng-container matColumnDef="receiveDate">
+      <th mat-header-cell *matHeaderCellDef> Dátum prijatia </th>
+      <td mat-cell *matCellDef="let servis">
+        {{servis.receiveDate | date: "d.M.yyyy H:m"}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attachments">
+      <th mat-header-cell *matHeaderCellDef> Prílohy </th>
+      <td mat-cell *matCellDef="let servis">
+        <button mat-icon-button color="primary" *ngIf="servis.attachmentsDirectory != 'NO_ATTACHMENTS'" (click)="getAttachments(servis.attachmentsDirectory)">
+          <mat-icon>get_app</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" 
+                (click)="select(myRowData)"></tr>
+  </table>
+</div>
+
+<div *ngIf="selected != null" class="servis-detail">
+      <mat-card *ngFor="let item of selected.servisInformations">
+        {{item.title}}
+        <mat-card-content>
+          {{item.value}}
+        </mat-card-content>
+      </mat-card>
+</div>
+  
