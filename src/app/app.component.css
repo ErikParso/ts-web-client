@@ -1,7 +1,16 @@
-.example-container {
+.servis-list {
     display: flex;
     flex-direction: column;
-    float: left;
-    margin: 0 10;
-    width: 20%;
+    width: 30%;
+    min-width: 250px;
   }
+
+.servis-content
+{
+  margin-left: 30%;
+  
+}
+
+.highlight{
+  background: rgb(184, 185, 255); /* green */
+}

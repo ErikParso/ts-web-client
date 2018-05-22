@@ -11,7 +11,7 @@ export class AppComponent {
 
   data: Servis[];
   selected: Servis;
-  columnsToDisplay = ['receiveDate', 'attachments'];
+  columnsToDisplay = [ 'id', 'receiveDate', 'attachments'];
 
   constructor(private apiService: ApiService) {
     apiService.httpGet<Servis[]>("/problems")
