@@ -27,11 +27,12 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="select(myRowData)" [ngClass]="{'highlight': selected == myRowData}"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="select(myRowData)" 
+                [ngClass]="{'solved': myRowData.solved, 'highlight': selected == myRowData}"></tr>
   </table>
 </div>
 
-<mat-list class="servis-content" *ngIf="selected">
+<mat-list [ngClass]="{'solved': selected && selected.solved, 'servis-content': true}" class="servis-content" *ngIf="selected">
     <h3 mat-subheader>Detail</h3>
     <mat-list-item *ngFor="let item of selected.servisInformations">
       <mat-icon mat-list-icon color="primary">info</mat-icon>
@@ -39,3 +40,7 @@
       <p mat-line> {{item.value}} </p>
     </mat-list-item>
 </mat-list>
+
+<button mat-icon-button color="primary" *ngIf="selected && !selected.solved" (click)="markSolved(selected)" class="btn-mark-solved" matTooltip="Označ ako vyriešené">
+  <mat-icon>done</mat-icon>
+</button>

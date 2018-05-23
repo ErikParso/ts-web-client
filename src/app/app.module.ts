@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatTableModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatCardModule, MatListModule } from '@angular/material';
+import { MatTableModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatCardModule, MatListModule, MatTooltipModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { MatTableModule, MatButtonModule, MatIconModule, MatFormFieldModule, Mat
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatCardModule, MatListModule
+    MatCardModule, 
+    MatListModule,
+    MatTooltipModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

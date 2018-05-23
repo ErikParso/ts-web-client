@@ -7,10 +7,23 @@
 
 .servis-content
 {
+  position: fixed;
   margin-left: 30%;
-  
+  height: 100%;
+  width: 100%;
 }
 
-.highlight{
-  background: rgb(184, 185, 255); /* green */
+.solved {
+  background: rgb(242, 255, 241); /* green */
+}
+
+.highlight {
+  background: rgb(231, 231, 255); /* green */
+}
+
+
+.btn-mark-solved {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

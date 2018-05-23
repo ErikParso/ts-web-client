@@ -22,6 +22,10 @@ export class AppComponent {
     window.open(environment.apiUrl + "/attachment/" + dir, "_self");
   }
 
+  markSolved(servis: Servis) {
+    this.apiService.httpGet<Servis[]>("/solved/" + servis.servisId).subscribe();
+  }
+
   select(row: Servis){
     this.selected = row;
   }
@@ -33,6 +37,7 @@ export class Servis {
   receiveDate: Date;
   attachmentsDirectory: String;
   servisInformations: ServisInformation[];
+  solved: boolean;
 }
 
 export class ServisInformation {
